@@ -1,6 +1,24 @@
 <script>
-import { cards } from '../store/store';
+import { cards, activeCards, foundCards } from '../store/store';
 import Card from './Card.svelte';
+
+const handleOnCardClick = (card) => {
+  if ($activeCards.length === 0) {
+    activeCards.update((aC) => [...aC, card.id]);
+  } else if ($activeCards.length === 1) {
+    activeCards.update((aC) => [...aC, card.id]);
+    const activeCardsFromSet = $cards.filter(c => $activeCards.includes(c.id));
+
+    if (activeCardsFromSet[0].value === activeCardsFromSet[1].value) {
+      foundCards.update((fC) => [...fC, activeCardsFromSet[0].id, activeCardsFromSet[1].id]);
+      activeCards.update(() => []);
+    } else {
+      setTimeout(() => {
+        activeCards.update(() => []);
+      }, 1500);
+    }
+  }
+};
 </script>
 
 <style>
@@ -13,6 +31,9 @@ import Card from './Card.svelte';
 
 <div class="Board">
   {#each $cards as card}
-    <Card>{card}</Card>
+    <Card
+      isActive={$activeCards.includes(card.id)}
+      isFound={$foundCards.includes(card.id)}
+      onClick={() => handleOnCardClick(card)}>{card.value}</Card>
   {/each}
 </div>
