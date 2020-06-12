@@ -39,8 +39,12 @@ export let isFound;
 }
 
 .Card-front {
-  background-color: #2980b9;
-  color: white;
+  align-items: center;
+  background-color: #FFFFFF;
+  border: 1px solid #B2B2B2;
+  color: black;
+  display: flex;
+  justify-content: center;
   transform: rotateY(180deg);
 }
 
@@ -53,7 +57,9 @@ export let isFound;
 <div on:click={(!isActive && !isFound) ? onClick : null } class="Card">
   <div class={`Card-inner ${isActive ? 'Card-inner--active' : ''} ${isFound ? 'Card-inner--found' : ''}`}>
     <div class="Card-face Card-front">
-      <slot />
+      <div class="Card-face-shape">
+        <slot />
+      </div>
     </div>
     <div class="Card-face Card-back">
       Back

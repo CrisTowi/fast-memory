@@ -1,6 +1,11 @@
 <script>
 import { cards, activeCards, foundCards } from '../store/store';
-import Card from './Card.svelte';
+import Card from '../components/Card.svelte';
+// Shapes
+import Circle from '../components/Circle.svelte';
+import Square from '../components/Square.svelte';
+import Triangle from '../components/Triangle.svelte';
+import EmptySquare from '../components/EmptySquare.svelte';
 
 const handleOnCardClick = (card) => {
   if ($activeCards.length === 0) {
@@ -34,6 +39,19 @@ const handleOnCardClick = (card) => {
     <Card
       isActive={$activeCards.includes(card.id)}
       isFound={$foundCards.includes(card.id)}
-      onClick={() => handleOnCardClick(card)}>{card.value}</Card>
+      onClick={() => handleOnCardClick(card)}>
+      {#if card.value === 'square'}
+        <Square />
+      {/if}
+      {#if card.value === 'circle'}
+        <Circle />
+      {/if}
+      {#if card.value === 'triangle'}
+        <Triangle />
+      {/if}
+      {#if card.value === 'empty-square'}
+        <EmptySquare />
+      {/if}
+    </Card>
   {/each}
 </div>
