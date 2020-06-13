@@ -2,10 +2,12 @@
 import { cards, activeCards, foundCards } from '../store/store';
 import Card from '../components/Card.svelte';
 // Shapes
-import Circle from '../components/Circle.svelte';
-import Square from '../components/Square.svelte';
-import Triangle from '../components/Triangle.svelte';
-import EmptySquare from '../components/EmptySquare.svelte';
+import Circle from '../components/shapes/Circle.svelte';
+import Square from '../components/shapes/Square.svelte';
+import Triangle from '../components/shapes/Triangle.svelte';
+import EmptySquare from '../components/shapes/EmptySquare.svelte';
+import Heart from '../components/shapes/Heart.svelte';
+import Diamond from '../components/shapes/Diamond.svelte';
 
 const handleOnCardClick = (card) => {
   if ($activeCards.length === 0) {
@@ -15,12 +17,14 @@ const handleOnCardClick = (card) => {
     const activeCardsFromSet = $cards.filter(c => $activeCards.includes(c.id));
 
     if (activeCardsFromSet[0].value === activeCardsFromSet[1].value) {
-      foundCards.update((fC) => [...fC, activeCardsFromSet[0].id, activeCardsFromSet[1].id]);
-      activeCards.update(() => []);
+      setTimeout(() => {
+        foundCards.update((fC) => [...fC, activeCardsFromSet[0].id, activeCardsFromSet[1].id]);
+        activeCards.update(() => []);
+      }, (600));
     } else {
       setTimeout(() => {
         activeCards.update(() => []);
-      }, 1500);
+      }, 1000);
     }
   }
 };
@@ -28,6 +32,7 @@ const handleOnCardClick = (card) => {
 
 <style>
 .Board {
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   grid-gap: 5px;
@@ -51,6 +56,12 @@ const handleOnCardClick = (card) => {
       {/if}
       {#if card.value === 'empty-square'}
         <EmptySquare />
+      {/if}
+      {#if card.value === 'heart'}
+        <Heart />
+      {/if}
+      {#if card.value === 'diamond'}
+        <Diamond />
       {/if}
     </Card>
   {/each}

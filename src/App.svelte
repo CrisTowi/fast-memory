@@ -8,11 +8,17 @@ const handleStartGame = () => {
 };
 </script>
 
-<main>
-	<Board />
-	<button on:click={handleStartGame}>Start Game</button>
-</main>
-
 <style>
-
+.App {
+	display: flex;
+	align-items: center;
+	height: 90vh;
+}
 </style>
+
+<main>
+	<button on:click={handleStartGame}>Start Game</button>
+	<div class="App">
+		<Board />
+	</div>
+</main>

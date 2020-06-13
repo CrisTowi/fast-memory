@@ -3,4 +3,6 @@ export default [
   'circle',
   'triangle',
   'empty-square',
+  'heart',
+  'diamond',
 ];
