@@ -12,6 +12,8 @@ import HorizontalStripes from '../components/shapes/HorizontalStripes.svelte';
 import VerticalStripes from '../components/shapes/VerticalStripes.svelte';
 import Donut from '../components/shapes/Donut.svelte';
 import RevertTriangle from '../components/shapes/RevertTriangle.svelte';
+import Cross from '../components/shapes/Cross.svelte';
+import Pacman from '../components/shapes/Pacman.svelte';
 
 const handleOnCardClick = (card) => {
   if ($activeCards.length === 0) {
@@ -43,16 +45,17 @@ const handleOnCardClick = (card) => {
 .Board {
   display: grid;
   grid-gap: 5px;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(15%, 1fr));
   margin-left: auto;
   margin-right: auto;
-  border: 1px solid #B8B8B8;
-  border-radius: 4px; 
+  border-radius: 4px;
   width: 80%;
 }
 </style>
 
-<div class="Board">
+<div class="Board" style={`
+  ${$cards.length === 0 || $cards.length === $foundCards.length ? '' : 'border: 1px solid #B8B8B8;'}
+`}>
   {#each $cards as card}
     <Card
       isActive={$activeCards.includes(card.id)}
@@ -87,6 +90,12 @@ const handleOnCardClick = (card) => {
       {/if}
       {#if card.value === 'revert-triangle'}
         <RevertTriangle />
+      {/if}
+      {#if card.value === 'cross'}
+        <Cross />
+      {/if}
+      {#if card.value === 'pacman'}
+        <Pacman />
       {/if}
     </Card>
   {/each}

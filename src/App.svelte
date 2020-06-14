@@ -12,8 +12,19 @@ const handleStartGame = () => {
 };
 </script>
 
+<style>
+.Board-container {
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	height: 99vh;
+}
+</style>
+
 <main>
-	<Board />
+	<div class="Board-container">
+		<Board />
+	</div>
 	<Modal
     onStartGame={handleStartGame}
     visible={$cards.length === 0 || $cards.length === $foundCards.length} />

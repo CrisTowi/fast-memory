@@ -9,4 +9,6 @@ export default [
   'triangle',
   'vertical-stripes',
   'revert-triangle',
+  'cross',
+  'pacman',
 ];
