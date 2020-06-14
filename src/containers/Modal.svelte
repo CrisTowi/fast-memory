@@ -65,8 +65,11 @@ export let onStartGame;
 }
 
 .Time {
+  overflow: hidden;
+  text-align: center;
+  width: 100%;
   color: white;
-  font-size: 24px;
+  font-size: 40px;
   font-weight: 600;
   margin: 20px 0px;
 
@@ -77,9 +80,10 @@ export let onStartGame;
 }
 
 @keyframes bounce-text {
-  0% { transform: translateY(0px) }
-  70% { transform: translateY(-20px) }
-  100% { transform: translateY(0px) }
+  0% { transform: rotateZ(0deg) }
+  25% { transform: rotateZ(2deg) }
+  50% { transform: rotateZ(-2deg) }
+  100% { transform: rotateZ(0deg) }
 }
 </style>
 

@@ -1,8 +1,12 @@
 export default [
-  'square',
   'circle',
-  'triangle',
+  'diamond',
+  'donut',
   'empty-square',
   'heart',
-  'diamond',
+  'horizontal-stripes',
+  'square',
+  'triangle',
+  'vertical-stripes',
+  'revert-triangle',
 ];

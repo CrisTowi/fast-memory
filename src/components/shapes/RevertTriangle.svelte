@@ -4,7 +4,7 @@
   width: 0px;
   border-left: 50px solid transparent;
   border-right: 50px solid transparent;
-  border-bottom: 100px solid cornflowerblue;
+  border-top: 100px solid dimgrey;
 }
 </style>
 

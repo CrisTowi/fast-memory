@@ -26,7 +26,8 @@ export let isFound;
   width: 100%;
   height: 100%;
   text-align: center;
-  transition: transform 0.6s;
+  transition-property: transform;
+  transition-duration: 0.6s;
   transform-style: preserve-3d;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
@@ -71,14 +72,10 @@ export let isFound;
   <div class={`Card-container ${isFound ? 'Card-container--found' : ''}`}>
     <div class={`Card-inner ${isActive ? 'Card-inner--active' : ''}`}>
       <div class="Card-face Card-front">
-        <div class="Card-face-shape">
-          <slot />
-        </div>
+        <slot />
       </div>
       <div class="Card-face Card-back">
-        <div class="Card-face-shape">
-          <Infinite />
-        </div>
+        <Infinite />
       </div>
     </div>
   </div>

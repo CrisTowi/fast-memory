@@ -8,6 +8,10 @@ import Triangle from '../components/shapes/Triangle.svelte';
 import EmptySquare from '../components/shapes/EmptySquare.svelte';
 import Heart from '../components/shapes/Heart.svelte';
 import Diamond from '../components/shapes/Diamond.svelte';
+import HorizontalStripes from '../components/shapes/HorizontalStripes.svelte';
+import VerticalStripes from '../components/shapes/VerticalStripes.svelte';
+import Donut from '../components/shapes/Donut.svelte';
+import RevertTriangle from '../components/shapes/RevertTriangle.svelte';
 
 const handleOnCardClick = (card) => {
   if ($activeCards.length === 0) {
@@ -37,10 +41,14 @@ const handleOnCardClick = (card) => {
 
 <style>
 .Board {
-  width: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   grid-gap: 5px;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid #B8B8B8;
+  border-radius: 4px; 
+  width: 80%;
 }
 </style>
 
@@ -67,6 +75,18 @@ const handleOnCardClick = (card) => {
       {/if}
       {#if card.value === 'diamond'}
         <Diamond />
+      {/if}
+      {#if card.value === 'horizontal-stripes'}
+        <HorizontalStripes />
+      {/if}
+      {#if card.value === 'vertical-stripes'}
+        <VerticalStripes />
+      {/if}
+      {#if card.value === 'donut'}
+        <Donut />
+      {/if}
+      {#if card.value === 'revert-triangle'}
+        <RevertTriangle />
       {/if}
     </Card>
   {/each}
