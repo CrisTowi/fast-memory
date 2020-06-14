@@ -17,3 +17,7 @@ export const generateRandomPairsArrangement = () => {
 
   return resultArray;
 };
+
+export const formatSecondsDiff = (date1, date2) => {
+  return ((date2 - date1) / 1000).toFixed(1);
+};

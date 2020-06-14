@@ -1,5 +1,5 @@
 <script>
-import { cards, activeCards, foundCards } from '../store/store';
+import { cards, activeCards, foundCards, endTime } from '../store/store';
 import Card from '../components/Card.svelte';
 // Shapes
 import Circle from '../components/shapes/Circle.svelte';
@@ -20,6 +20,11 @@ const handleOnCardClick = (card) => {
       setTimeout(() => {
         foundCards.update((fC) => [...fC, activeCardsFromSet[0].id, activeCardsFromSet[1].id]);
         activeCards.update(() => []);
+
+      if ($foundCards.length === $cards.length) {
+        endTime.update(() => new Date());
+      }
+
       }, (600));
     } else {
       setTimeout(() => {
