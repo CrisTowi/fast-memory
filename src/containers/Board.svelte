@@ -28,6 +28,7 @@ const handleOnCardClick = (card) => {
         activeCards.update(() => []);
 
       if ($foundCards.length === $cards.length) {
+      	cards.update(() => []);
         endTime.update(() => new Date());
       }
 

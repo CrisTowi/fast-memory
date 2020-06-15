@@ -1,6 +1,7 @@
 <script>
 import Board from './containers/Board.svelte';
 import Modal from './containers/Modal.svelte';
+import data from './data';
 
 import { cards, foundCards, startTime, endTime } from './store/store';
 import { generateRandomPairsArrangement } from './helpers/helpers';
@@ -33,5 +34,5 @@ const handleStartGame = () => {
 	</div>
 	<Modal
     onStartGame={handleStartGame}
-    visible={$cards.length === 0 || $cards.length === $foundCards.length} />
+    visible={$cards.length === 0 || $foundCards.length === (data.length * 2)} />
 </main>
