@@ -28,7 +28,7 @@ export let onStartGame;
   justify-content: center;
   overflow: hidden;
   transition-property: width, height;
-  transition-duration: 0.5s;
+  transition-duration: 0.7s;
   pointer-events: all;
 }
 
@@ -39,8 +39,8 @@ export let onStartGame;
 }
 
 .Modal-content--visible {
-  width: 100vw;
-  height: 100vw;
+  width: 200vw;
+  height: 200vw;
   border-radius: 0;
 }
 
@@ -57,7 +57,7 @@ export let onStartGame;
   font-size: 24px;
   font-weight: 600;
   cursor: pointer;
-  transition: transform 0.1s;
+  transition: transform 0.2s;
 }
 
 .Intro-start-game:hover {

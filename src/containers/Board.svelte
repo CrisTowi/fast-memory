@@ -51,6 +51,20 @@ const handleOnCardClick = (card) => {
   border-radius: 4px;
   width: 80%;
 }
+
+@media screen and (max-width: 1260px) {
+  .Board {
+    grid-template-columns: repeat(auto-fill, minmax(20%, 1fr));
+  }
+}
+
+@media screen and (max-width: 930px) {
+  .Board {
+    width: 100%;
+  }
+}
+
+
 </style>
 
 <div class="Board" style={`

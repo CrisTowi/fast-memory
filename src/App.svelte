@@ -19,6 +19,12 @@ const handleStartGame = () => {
 	justify-content: center;
 	height: 99vh;
 }
+
+@media screen and (max-width: 1260px) {
+  .Board-container {
+    height: auto;
+  }
+}
 </style>
 
 <main>

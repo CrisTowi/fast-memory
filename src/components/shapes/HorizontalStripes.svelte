@@ -6,7 +6,15 @@
   border-top: 20px solid green;
   border-bottom: 20px solid green;
 }
+
+@media screen and (max-width: 560px) {
+  .HorizontalStripes {
+    width: 75px;
+    height: 75px;
+  }
+}
 </style>
+
 
 <div class="HorizontalStripes">
 
